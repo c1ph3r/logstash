@@ -1,0 +1,33 @@
+{
+    "network": {
+        "servers": [ "172.16.14.15:5043" ],
+        "ssl ca": "/etc/ssl/certs/logstash.crt",
+        "timeout": 15
+    },
+    "files": [
+        {
+                "paths": [
+                "/var/log/auth.log"
+            ],
+            "fields": { "type": "linux-syslog" }
+        },
+        {
+            "paths": [
+            "/var/log/kern.log"
+            ],
+            "fields": { "type": "kern-log" }
+        },
+        {
+            "paths": [
+            "/var/log/apache2/*access.log"
+            ],
+            "fields": { "type": "apache-access" }
+        },
+        {
+                "paths": [
+                "/var/log/apache2/error.log"
+            ],
+            "fields": { "type": "apache-error" }
+        }
+    ]
+}
